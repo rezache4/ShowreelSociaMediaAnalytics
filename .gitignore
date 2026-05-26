@@ -10,10 +10,11 @@ multimodal_dataset_fixed/
 Ali/.venv/
 Ali/processing_venv/
 # Ignore absolutely everything inside the Data directory and all its subfolders
-Ali/Data/**
+Data/**
 # But do not ignore any file ending in .dvc anywhere inside that directory
-!Ali/Data/**/*.dvc
+!Data/**/*.dvc
 Ali/multimodal_dataset/
 Ali/multimodal_dataset_fixed/
 Ali/.env.example
 *.code-workspace
+/Data
