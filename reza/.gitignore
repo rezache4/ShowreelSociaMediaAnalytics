@@ -8,28 +8,28 @@ transcripts/
 *.it.vtt
 
 # ── GCP job bundles (large JSONL, up to 1 GB) ─────────────────────────────────
-Data_Cleaned/gcp_jobs/
+**/gcp_jobs/
 
 # ── Pipeline runtime artifacts ────────────────────────────────────────────────
-Data_Cleaned/completed_video_ids.txt
-Data_Cleaned/processed_urls.txt
-Data_Cleaned/pooled_*.csv
-Data_Cleaned/cloud_matched_transcripts.csv
-Data_Cleaned/pooled_transcript_summary.txt
-Data_Cleaned/recycle_manifest*.json
+completed_video_ids.txt
+processed_urls.txt
+pooled_*.csv
+cloud_matched_transcripts.csv
+pooled_transcript_summary.txt
+recycle_manifest*.json
 
 # ── Auth / sensitive ──────────────────────────────────────────────────────────
 *_cookies.txt
 
-# ── Michele: large computed CSVs (regenerable, > 1 MB) ────────────────────────
-Michele_OneDrive/RFEC/Dynamic clustering RFE Ig/ig_dynamic_rfe_transitions_long.csv
-Michele_OneDrive/RFEC/Dynamic clustering RFE Ig/ig_users_dynamic_rfe_clusters_long_all_windows.csv
-Michele_OneDrive/RFEC/Dynamic clustering RFE Ig/ig_comments_dynamic_rfe_cluster_assignment_long.csv
-Michele_OneDrive/RFEC/Dynamic clustering RFE Ig/ig_comments_dynamic_rfe_level_classification_long.csv
-Michele_OneDrive/RFEC/Dynamic clustering RFE Ig/ig_comments_dynamic_rfe_rolling_metrics.csv
-Michele_OneDrive/RFEC/Dynamic clustering RFE Ig/ig_comments_dynamic_rfe_input.csv
-Michele_OneDrive/RFEC/Dynamic clustering RFE Ig/ig_users_dynamic_rfe_clusters_wide.csv
-Michele_OneDrive/RFEC/Facebook RFE/fb_comments_RFE_macro_top_level_annual_2017_2022_2026_min2_absolute_rf.csv
+# ── Michele large computed CSVs (regenerable, > 1 MB) ────────────────────────
+ig_dynamic_rfe_transitions_long.csv
+ig_users_dynamic_rfe_clusters_long_all_windows.csv
+ig_comments_dynamic_rfe_cluster_assignment_long.csv
+ig_comments_dynamic_rfe_level_classification_long.csv
+ig_comments_dynamic_rfe_rolling_metrics.csv
+ig_comments_dynamic_rfe_input.csv
+ig_users_dynamic_rfe_clusters_wide.csv
+fb_comments_RFE_macro_top_level_annual_2017_2022_2026_min2_absolute_rf.csv
 
 # ── Python cache ──────────────────────────────────────────────────────────────
 __pycache__/
