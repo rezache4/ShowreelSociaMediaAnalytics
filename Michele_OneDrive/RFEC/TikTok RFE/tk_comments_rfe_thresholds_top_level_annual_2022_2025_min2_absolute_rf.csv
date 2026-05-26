@@ -1,0 +1,4 @@
+metric,era,threshold_1,threshold_2,source,note
+recency,,0.2,0.5,tk_annual_2022_2025_min2_scaled_r_absolute_f_final,"Scaled recency based on the share of annual posts published after the user's last comment: up to 20% of the feed still indicates proximity to the active edge; beyond 50% means the user has missed most of the annual feed."
+frequency,,1,3,tk_annual_2022_2025_min2_scaled_r_absolute_f_final,"Absolute frequency based on annual distinct-post count: 1 means the user's eligible annual activity is concentrated on a single post, 2 to 3 means participation spreads across a few posts, and 4 or more distinct posts indicate broader yearly presence."
+engagement,,5.0,10.0,tk_annual_2022_2025_min2_scaled_r_absolute_f_final,"Up to about 5 words comments remain short and reactive; above about 10 words they become clearly more elaborated and discursive."

@@ -1,0 +1,5 @@
+metric,threshold_1,threshold_2,source,note
+recency,0.2,0.4,behavioral,"Up to about 20% of the triennial feed after the last comment still indicates proximity to the active edge; beyond about 40% the user has been away from a substantial share of the era."
+frequency,5,10,behavioral,"Up to 5 distinct posts in a triennium indicates sparse participation breadth; more than 10 distinct posts indicates a broad and recurring presence across the era."
+engagement,5,12,behavioral,"Short reactive comments up to 5 words, more elaborated comments above 12 words."
+clumpiness,15,50,behavioral,"Variation up to about 15 posts-between-comments still reflects relatively regular spacing; above 50 the participation pattern is clearly bursty and episodic."

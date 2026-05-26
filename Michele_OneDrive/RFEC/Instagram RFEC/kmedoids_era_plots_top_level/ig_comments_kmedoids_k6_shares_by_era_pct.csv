@@ -1,0 +1,19 @@
+﻿era,cluster_id,display_order,display_cluster_code,cluster_name,cluster_label,recency_band,frequency_band,engagement_band,clumpiness_band,n_rows,era_total_rows,share_within_era,share_pct
+2017-2019,4,1,C1,Recent Broad Active,C1 Recent Broad Active,Low/Mid,Mid/High,Any,Low/Mid,1293,9506,0.13601935619608668,13.601935619608668
+2017-2019,2,2,C2,Recent Steady Conversational,C2 Recent Steady Conversational,Low/Mid,Low/Mid,Any,Low/Mid,3675,9506,0.3865979381443299,38.659793814432994
+2017-2019,3,3,C3,Recent Bursty Conversational,C3 Recent Bursty Conversational,Low/Mid,Low/Mid,Mid/High,High,886,9506,0.09320429202608879,9.32042920260888
+2017-2019,1,4,C4,Recent Bursty Light,C4 Recent Bursty Light,Low/Mid,Low/Mid,Low,Mid/High,1475,9506,0.15516515884704396,15.516515884704397
+2017-2019,6,5,C5,Dormant Conversational,C5 Dormant Conversational,Mid/High,Low/Mid,Mid/High,Any,1262,9506,0.1327582579423522,13.27582579423522
+2017-2019,5,6,C6,Dormant Light,C6 Dormant Light,Mid/High,Low/Mid,Low,Any,915,9506,0.09625499684409847,9.625499684409847
+2020-2022,4,1,C1,Recent Broad Active,C1 Recent Broad Active,Low/Mid,Mid/High,Any,Low/Mid,2405,15974,0.15055715537748843,15.055715537748842
+2020-2022,2,2,C2,Recent Steady Conversational,C2 Recent Steady Conversational,Low/Mid,Low/Mid,Any,Low/Mid,1865,15974,0.11675222236133717,11.675222236133717
+2020-2022,3,3,C3,Recent Bursty Conversational,C3 Recent Bursty Conversational,Low/Mid,Low/Mid,Mid/High,High,3271,15974,0.20477025165894577,20.477025165894577
+2020-2022,1,4,C4,Recent Bursty Light,C4 Recent Bursty Light,Low/Mid,Low/Mid,Low,Mid/High,3203,15974,0.20051333416802303,20.051333416802304
+2020-2022,6,5,C5,Dormant Conversational,C5 Dormant Conversational,Mid/High,Low/Mid,Mid/High,Any,2809,15974,0.17584825341179416,17.584825341179418
+2020-2022,5,6,C6,Dormant Light,C6 Dormant Light,Mid/High,Low/Mid,Low,Any,2421,15974,0.1515587830224114,15.15587830224114
+2023-2026,4,1,C1,Recent Broad Active,C1 Recent Broad Active,Low/Mid,Mid/High,Any,Low/Mid,1092,7165,0.1524075366364271,15.240753663642709
+2023-2026,2,2,C2,Recent Steady Conversational,C2 Recent Steady Conversational,Low/Mid,Low/Mid,Any,Low/Mid,887,7165,0.12379623168178647,12.379623168178647
+2023-2026,3,3,C3,Recent Bursty Conversational,C3 Recent Bursty Conversational,Low/Mid,Low/Mid,Mid/High,High,1589,7165,0.22177250523377529,22.177250523377527
+2023-2026,1,4,C4,Recent Bursty Light,C4 Recent Bursty Light,Low/Mid,Low/Mid,Low,Mid/High,979,7165,0.1366364270760642,13.663642707606419
+2023-2026,6,5,C5,Dormant Conversational,C5 Dormant Conversational,Mid/High,Low/Mid,Mid/High,Any,1582,7165,0.22079553384508024,22.079553384508024
+2023-2026,5,6,C6,Dormant Light,C6 Dormant Light,Mid/High,Low/Mid,Low,Any,1036,7165,0.1445917655268667,14.459176552686671

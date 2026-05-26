@@ -1,0 +1,25 @@
+﻿era,cluster_id,display_order,display_cluster_code,cluster_label,recency_band,frequency_band,engagement_band,n_rows,era_total_rows
+2022,2,1,C1,C1 Recent Conversational,Low,Mid,Mid/High,27,142
+2022,1,2,C2,C2 Recent Light,Low,Mid,Low,27,142
+2022,5,3,C3,C3 Fading Discursive,Mid/High,Mid,High,17,142
+2022,4,4,C4,C4 Fading Conversational,Mid/High,Mid,Mid,37,142
+2022,3,5,C5,C5 Cooling Light,Mid,Mid,Low,13,142
+2022,6,6,C6,C6 Dormant Light,High,Low/Mid,Low,21,142
+2023,2,1,C1,C1 Recent Conversational,Low,Mid,Mid/High,70,482
+2023,1,2,C2,C2 Recent Light,Low,Mid,Low,46,482
+2023,5,3,C3,C3 Fading Discursive,Mid/High,Mid,High,76,482
+2023,4,4,C4,C4 Fading Conversational,Mid/High,Mid,Mid,132,482
+2023,3,5,C5,C5 Cooling Light,Mid,Mid,Low,107,482
+2023,6,6,C6,C6 Dormant Light,High,Low/Mid,Low,51,482
+2024,2,1,C1,C1 Recent Conversational,Low,Mid,Mid/High,43,124
+2024,1,2,C2,C2 Recent Light,Low,Mid,Low,37,124
+2024,5,3,C3,C3 Fading Discursive,Mid/High,Mid,High,15,124
+2024,4,4,C4,C4 Fading Conversational,Mid/High,Mid,Mid,15,124
+2024,3,5,C5,C5 Cooling Light,Mid,Mid,Low,9,124
+2024,6,6,C6,C6 Dormant Light,High,Low/Mid,Low,5,124
+2025,2,1,C1,C1 Recent Conversational,Low,Mid,Mid/High,37,340
+2025,1,2,C2,C2 Recent Light,Low,Mid,Low,23,340
+2025,5,3,C3,C3 Fading Discursive,Mid/High,Mid,High,55,340
+2025,4,4,C4,C4 Fading Conversational,Mid/High,Mid,Mid,82,340
+2025,3,5,C5,C5 Cooling Light,Mid,Mid,Low,82,340
+2025,6,6,C6,C6 Dormant Light,High,Low/Mid,Low,61,340

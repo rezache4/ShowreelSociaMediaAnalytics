@@ -1,0 +1,7 @@
+{
+    "python.analysis.autoImportCompletions": true,
+    "python.defaultInterpreterPath": "D:/miniconda/envs/showreel-kernel/python.exe",
+    "code-runner.executorMap": {
+        "python": "D:/miniconda/envs/showreel-kernel/python.exe -u"
+    }
+}

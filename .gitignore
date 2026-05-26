@@ -1,0 +1,41 @@
+# ── Data files ────────────────────────────────────────────────────────────────
+*.parquet
+*.pkl
+
+# ── Transcripts (10K+ VTT/marker files) ───────────────────────────────────────
+transcripts/
+*.vtt
+*.it.vtt
+
+# ── GCP job bundles (large JSONL, up to 1 GB) ─────────────────────────────────
+Data_Cleaned/gcp_jobs/
+
+# ── Pipeline runtime artifacts ────────────────────────────────────────────────
+Data_Cleaned/completed_video_ids.txt
+Data_Cleaned/processed_urls.txt
+Data_Cleaned/pooled_*.csv
+Data_Cleaned/cloud_matched_transcripts.csv
+Data_Cleaned/pooled_transcript_summary.txt
+Data_Cleaned/recycle_manifest*.json
+
+# ── Auth / sensitive ──────────────────────────────────────────────────────────
+*_cookies.txt
+
+# ── Michele: large computed CSVs (regenerable, > 1 MB) ────────────────────────
+Michele_OneDrive/RFEC/Dynamic clustering RFE Ig/ig_dynamic_rfe_transitions_long.csv
+Michele_OneDrive/RFEC/Dynamic clustering RFE Ig/ig_users_dynamic_rfe_clusters_long_all_windows.csv
+Michele_OneDrive/RFEC/Dynamic clustering RFE Ig/ig_comments_dynamic_rfe_cluster_assignment_long.csv
+Michele_OneDrive/RFEC/Dynamic clustering RFE Ig/ig_comments_dynamic_rfe_level_classification_long.csv
+Michele_OneDrive/RFEC/Dynamic clustering RFE Ig/ig_comments_dynamic_rfe_rolling_metrics.csv
+Michele_OneDrive/RFEC/Dynamic clustering RFE Ig/ig_comments_dynamic_rfe_input.csv
+Michele_OneDrive/RFEC/Dynamic clustering RFE Ig/ig_users_dynamic_rfe_clusters_wide.csv
+Michele_OneDrive/RFEC/Facebook RFE/fb_comments_RFE_macro_top_level_annual_2017_2022_2026_min2_absolute_rf.csv
+
+# ── Python cache ──────────────────────────────────────────────────────────────
+__pycache__/
+*.pyc
+*.pyo
+
+# ── OS / editor noise ─────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
