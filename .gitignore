@@ -1,0 +1,16 @@
+/videos
+.env
+.venv/
+yt_scraper_env/
+processing_venv/
+ma_env/
+Data/
+multimodal_dataset/
+multimodal_dataset_fixed/
+Ali/.venv/
+Ali/processing_venv/
+Ali/Data/
+Ali/multimodal_dataset/
+Ali/multimodal_dataset_fixed/
+Ali/yt_videos_cleaned_with_transcripts.parquet
+*.code-workspace
