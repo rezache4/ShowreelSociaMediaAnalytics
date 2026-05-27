@@ -1,5 +1,5 @@
-# CELL 1: Extract undownloaded image and carousel links from GCS bucket
-# This cell extracts which images/carousels have NOT been downloaded yet
+# CELL 1: Extract undownloaded links using downloaded_links.csv as reference
+# This cell uses your local downloaded_links.csv to determine what's missing
 
 # Install required libraries
 import subprocess
@@ -11,7 +11,6 @@ for lib in libs_to_install:
 
 import os
 import io
-from pathlib import Path
 from google.cloud import storage
 from google.colab import auth
 import pandas as pd
@@ -26,8 +25,7 @@ auth.authenticate_user()
 BUCKET_NAME = "your-bucket-name"  # ← CHANGE THIS
 GCS_PROJECT_ID = "your-project-id"  # ← CHANGE THIS
 IG_POSTS_PATH = "Data/Camihawke/Cleaned/ig_posts_with_duration.parquet"
-IMAGE_BUCKET_PATH = "multimodal_dataset_fixed/image/"
-CAROUSEL_BUCKET_PATH = "multimodal_dataset_fixed/carousel/"
+DOWNLOADED_LINKS_FILE = "downloaded_links.csv"  # Upload this from local notebook
 OUTPUT_LINKS_FILE = "undownloaded_links.csv"
 
 # Initialize GCS client
@@ -38,76 +36,73 @@ print("="*70)
 print("EXTRACTING UNDOWNLOADED IMAGE AND CAROUSEL LINKS")
 print("="*70)
 
-# Load ig_posts from bucket
-print(f"\n[1/5] Loading ig_posts from: gs://{BUCKET_NAME}/{IG_POSTS_PATH}")
+# ============================================================================
+# Step 1: Load downloaded_links.csv (from local notebook)
+# ============================================================================
+print(f"\n[1/4] Loading downloaded links from: {DOWNLOADED_LINKS_FILE}")
+try:
+    downloaded_df = pd.read_csv(DOWNLOADED_LINKS_FILE)
+    downloaded_shortcodes = set(downloaded_df['shortcode'].tolist())
+    print(f"✓ Loaded {len(downloaded_df)} already downloaded items")
+    print(f"  • IMAGE: {len(downloaded_df[downloaded_df['type'] == 'IMAGE'])}")
+    print(f"  • CAROUSEL_ALBUM: {len(downloaded_df[downloaded_df['type'] == 'CAROUSEL_ALBUM'])}")
+except FileNotFoundError:
+    print(f"✗ Error: {DOWNLOADED_LINKS_FILE} not found!")
+    print("Make sure you uploaded downloaded_links.csv from your local notebook to Colab Files")
+    raise
+except Exception as e:
+    print(f"✗ Error loading CSV: {e}")
+    raise
+
+# ============================================================================
+# Step 2: Load ig_posts from bucket
+# ============================================================================
+print(f"\n[2/4] Loading ig_posts from: gs://{BUCKET_NAME}/{IG_POSTS_PATH}")
 try:
     blob = bucket.blob(IG_POSTS_PATH)
     ig_posts = pd.read_parquet(blob.open('rb'))
-    print(f"✓ Loaded {len(ig_posts)} posts")
+    print(f"✓ Loaded {len(ig_posts)} total posts")
+    print(f"  • IMAGE: {len(ig_posts[ig_posts['media_type'] == 'IMAGE'])}")
+    print(f"  • CAROUSEL_ALBUM: {len(ig_posts[ig_posts['media_type'] == 'CAROUSEL_ALBUM'])}")
 except Exception as e:
     print(f"✗ Error loading ig_posts: {e}")
     raise
 
-# Get image and carousel links
-print(f"\n[2/5] Extracting links from ig_posts...")
-image_links = ig_posts[ig_posts["media_type"] == "IMAGE"]["permalink"].tolist()
-carousel_links = ig_posts[ig_posts["media_type"] == "CAROUSEL_ALBUM"]["permalink"].tolist()
+# ============================================================================
+# Step 3: Extract shortcode from permalink and compare
+# ============================================================================
+print(f"\n[3/4] Finding undownloaded items...")
 
-print(f"✓ Found {len(image_links)} IMAGE posts")
-print(f"✓ Found {len(carousel_links)} CAROUSEL_ALBUM posts")
-
-# List existing downloaded files in bucket
-def list_downloaded_shortcodes(bucket, prefix):
-    """Extract shortcodes of already downloaded posts"""
-    shortcodes = set()
-    blobs = bucket.list_blobs(prefix=prefix)
-
-    for blob in blobs:
-        # Path format: multimodal_dataset_fixed/image/{shortcode}/{files}
-        parts = blob.name[len(prefix):].split('/')
-        if parts[0] and parts[0].strip():  # Extract shortcode
-            shortcodes.add(parts[0])
-
-    return shortcodes
-
-print(f"\n[3/5] Checking already downloaded files in bucket...")
-already_downloaded_images = list_downloaded_shortcodes(bucket, IMAGE_BUCKET_PATH)
-already_downloaded_carousels = list_downloaded_shortcodes(bucket, CAROUSEL_BUCKET_PATH)
-
-print(f"✓ Already downloaded images: {len(already_downloaded_images)}")
-print(f"✓ Already downloaded carousels: {len(already_downloaded_carousels)}")
-
-# Extract shortcode from permalink
 def extract_shortcode(permalink):
     """Extract Instagram shortcode from permalink"""
     return permalink.split('/')[-2] if '/' in permalink else permalink
 
-# Filter undownloaded links
-undownloaded_images = [
-    url for url in image_links
-    if extract_shortcode(url) not in already_downloaded_images
-]
-undownloaded_carousels = [
-    url for url in carousel_links
-    if extract_shortcode(url) not in already_downloaded_carousels
-]
+# Add shortcode column to ig_posts
+ig_posts['shortcode_extracted'] = ig_posts['permalink'].apply(extract_shortcode)
 
-print(f"\n[4/5] Undownloaded items:")
-print(f"✓ Undownloaded images: {len(undownloaded_images)}")
-print(f"✓ Undownloaded carousels: {len(undownloaded_carousels)}")
-print(f"✓ Total to download: {len(undownloaded_images) + len(undownloaded_carousels)}")
+# Filter for undownloaded items (not in downloaded_shortcodes)
+undownloaded_df = ig_posts[
+    ~ig_posts['shortcode_extracted'].isin(downloaded_shortcodes)
+][['permalink', 'media_type']].copy()
 
-# Create DataFrame with undownloaded links
-undownloaded_data = []
-for url in undownloaded_images:
-    undownloaded_data.append({"url": url, "type": "IMAGE"})
-for url in undownloaded_carousels:
-    undownloaded_data.append({"url": url, "type": "CAROUSEL_ALBUM"})
+# Rename columns to match expected format
+undownloaded_df = undownloaded_df.rename(columns={
+    'permalink': 'url',
+    'media_type': 'type'
+})
 
-undownloaded_df = pd.DataFrame(undownloaded_data)
+image_count = len(undownloaded_df[undownloaded_df['type'] == 'IMAGE'])
+carousel_count = len(undownloaded_df[undownloaded_df['type'] == 'CAROUSEL_ALBUM'])
 
-# Save to bucket as CSV
-print(f"\n[5/5] Saving undownloaded links...")
+print(f"✓ Undownloaded items found:")
+print(f"  • IMAGE: {image_count}")
+print(f"  • CAROUSEL_ALBUM: {carousel_count}")
+print(f"  • Total to download: {len(undownloaded_df)}")
+
+# ============================================================================
+# Step 4: Save undownloaded links to bucket
+# ============================================================================
+print(f"\n[4/4] Saving undownloaded links to bucket...")
 csv_content = undownloaded_df.to_csv(index=False)
 blob = bucket.blob(OUTPUT_LINKS_FILE)
 blob.upload_from_string(csv_content, content_type='text/csv')
@@ -120,4 +115,8 @@ print(f"✓ Local copy: undownloaded_links.csv")
 print("\n" + "="*70)
 print("EXTRACTION COMPLETE")
 print("="*70)
-print(f"Next step: Run CELL 2 to download the {len(undownloaded_df)} links")
+print(f"\nSummary:")
+print(f"  • Already downloaded: {len(downloaded_df)}")
+print(f"  • Total in ig_posts: {len(ig_posts)}")
+print(f"  • Remaining to download: {len(undownloaded_df)}")
+print(f"\nNext step: Run CELL 2 to download the {len(undownloaded_df)} remaining items")

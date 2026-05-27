@@ -86,30 +86,32 @@ files.upload()  # Opens file picker
 **Create a new cell in Colab:**
 
 1. Copy code from `colab_cell_1_extract_links.py`
-2. **Update configuration:**
+2. **Verify you uploaded `downloaded_links.csv`** to Colab Files
+3. **Update configuration:**
    ```python
    BUCKET_NAME = "your-bucket-name"
    GCS_PROJECT_ID = "your-project-id"
    ```
-3. Run the cell
+4. Run the cell
 
 **What it does:**
+- Loads your `downloaded_links.csv` (from local notebook)
 - Loads `ig_posts_with_duration.parquet` from bucket
-- Reads your `downloaded_links.csv` to know what you have
-- Checks bucket to find what's already there
-- Extracts items that are NOT downloaded
+- Compares them to find what's NOT yet downloaded
 - Saves `undownloaded_links.csv` to bucket
 
 **Output:**
 ```
-✓ Loaded 5000 posts
-✓ Found 3000 IMAGE posts
-✓ Found 2000 CAROUSEL_ALBUM posts
-✓ Already downloaded images: 2500
-✓ Already downloaded carousels: 1800
-✓ Undownloaded images: 500
-✓ Undownloaded carousels: 200
-✓ Total to download: 700
+✓ Loaded 4300 already downloaded items
+  • IMAGE: 2500
+  • CAROUSEL_ALBUM: 1800
+✓ Loaded 5000 total posts
+  • IMAGE: 3000
+  • CAROUSEL_ALBUM: 2000
+✓ Undownloaded items found:
+  • IMAGE: 500
+  • CAROUSEL_ALBUM: 200
+  • Total to download: 700
 ```
 
 ### Step 4: Colab Cell 2 - Download Pipeline
