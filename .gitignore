@@ -18,3 +18,4 @@ Ali/multimodal_dataset_fixed/
 Ali/.env.example
 *.code-workspace
 /Data
+gcp_credentials.json

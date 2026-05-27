@@ -1,5 +1,0 @@
-outs:
-- md5: 0f2d6dafa8dc28c2a8a843aec5540d8c
-  size: 452051
-  hash: md5
-  path: ig_posts_cleaned.parquet
