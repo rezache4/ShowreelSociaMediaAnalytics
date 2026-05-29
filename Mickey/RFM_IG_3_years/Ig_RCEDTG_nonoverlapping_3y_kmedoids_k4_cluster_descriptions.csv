@@ -1,0 +1,5 @@
+﻿cluster,cluster_name,description,rcedtg_signature
+C1,Brand Advocates,"The strongest group: very recent, broader in coverage, more expressive, fast to respond, highly tenured within period, and highly dispersed across posts.",Low-Mid-Mid-Low-High-High
+C2,Active Supporters,"Fairly recent users with broader post coverage, lower engagement, fast response, medium tenure, and strong dispersion across posts.",Mid-Mid-Low-Low-Mid-High
+C3,Quiet Regulars,"Less recent but still established users with narrow coverage, low engagement, fast response, and medium concentration across posts.",High-Low-Low-Low-Mid-Mid
+C4,Occasional Newcomers,"The lightest and newest group: narrow in coverage and engagement, fast to respond, and low in tenure and dispersion.",Mid-Low-Low-Low-Low-Low

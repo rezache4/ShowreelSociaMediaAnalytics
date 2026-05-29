@@ -1,0 +1,13 @@
+﻿cluster,cluster_name,period_label,period_index,recency,coverage,engagement,delay,tenure,gini,cluster_order,cluster_label
+C1,Brand Advocates,2017-2019,1,0.090336,0.008403,1.4,1.710022,320.9284725,0.75,1,C1 Brand Advocates
+C1,Brand Advocates,2020-2022,2,0.104673,0.009346,1.4,2.433519,1005.374213,0.8,1,C1 Brand Advocates
+C1,Brand Advocates,2023-2026-03,3,0.110375,0.006623,1.5,3.7570414999999997,1987.871001,0.666667,1,C1 Brand Advocates
+C2,Active Supporters,2017-2019,1,0.218487,0.006303,1.0,1.830833,131.7256365,0.666667,2,C2 Active Supporters
+C2,Active Supporters,2020-2022,2,0.3971965,0.007477,1.0,2.2331944999999997,430.34599000000003,0.72,2,C2 Active Supporters
+C2,Active Supporters,2023-2026-03,3,0.339956,0.006623,1.0,3.868472,1099.372963,0.666667,2,C2 Active Supporters
+C3,Quiet Regulars,2017-2019,1,0.19958,0.004202,1.0,1.4725,92.745035,0.5,3,C3 Quiet Regulars
+C3,Quiet Regulars,2020-2022,2,0.609346,0.003738,1.0,1.708333,426.177211,0.5,3,C3 Quiet Regulars
+C3,Quiet Regulars,2023-2026-03,3,0.750552,0.002208,1.0,2.145556,1176.984387,0.0,3,C3 Quiet Regulars
+C4,Occasional Newcomers,2017-2019,1,0.207983,0.002101,1.0,1.0905555,0.0,0.0,4,C4 Occasional Newcomers
+C4,Occasional Newcomers,2020-2022,2,0.323364,0.001869,1.0,2.182083,0.000498,0.0,4,C4 Occasional Newcomers
+C4,Occasional Newcomers,2023-2026-03,3,0.410596,0.002208,1.0,3.2291665,687.1165854999999,0.0,4,C4 Occasional Newcomers
