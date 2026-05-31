@@ -1,0 +1,13 @@
+{
+  "date_range": "2026-2026",
+  "mode": "sample",
+  "sample_size": 20,
+  "total_shorts": 20,
+  "shorts_with_source": 0,
+  "shorts_without_source": 20,
+  "percentage_with_source": 0.0,
+  "found_in_ytdata": 0,
+  "found_in_description": 0,
+  "unique_source_videos": 0,
+  "analysis_date": "2026-05-30T14:53:14.629155"
+}
