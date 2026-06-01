@@ -1,0 +1,13 @@
+{
+  "date_range": "2021-2026",
+  "mode": "full",
+  "total_shorts": 4350,
+  "shorts_connected": 895,
+  "percentage_connected": 20.57,
+  "connection_type_counts": {
+    "none": 3455,
+    "long": 797,
+    "short": 98
+  },
+  "analysis_date": "2026-05-31T22:01:35.027675"
+}
